@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Accessibility Audits for the European Accessibility Act | Ahmed Basher</title>
+<meta name="description" content="WCAG 2.2 AA accessibility audits and code fixes for online shops and web agencies. Get ready for the European Accessibility Act (EAA, BFSG, RGAA).">
+<style>
+  :root {
+    --ink: #14213d; --muted: #4a5568; --accent: #0b57d0; --accent-dark: #083e94;
+    --bg: #ffffff; --soft: #f3f6fb; --line: #d5dce6; --ok: #1e7b34; --bad: #b00020;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+         color: var(--ink); background: var(--bg); line-height: 1.6; font-size: 1.0625rem; }
+  a { color: var(--accent); }
+  a:hover { color: var(--accent-dark); }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .skip { position: absolute; left: -9999px; top: 0; }
+  .skip:focus { left: 1rem; top: 1rem; background: #fff; padding: .6rem 1rem; z-index: 10; border: 2px solid var(--accent); }
+  .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.25rem; }
+  header { border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .9rem; flex-wrap: wrap; }
+  .brand { font-weight: 700; color: var(--ink); text-decoration: none; font-size: 1.1rem; }
+  nav ul { list-style: none; display: flex; gap: .25rem; margin: 0; padding: 0; flex-wrap: wrap; }
+  nav a { display: inline-block; padding: .5rem .7rem; color: var(--ink); text-decoration: none; border-radius: .4rem; }
+  nav a:hover { background: var(--soft); }
+  .hero { padding-block: 4rem 3rem; }
+  .eyebrow { font-weight: 600; color: var(--accent-dark); text-transform: uppercase; letter-spacing: .06em; font-size: .85rem; margin: 0 0 .5rem; }
+  h1 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; margin: 0 0 1rem; max-width: 22ch; }
+  h2 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; margin: 0 0 1rem; }
+  h3 { font-size: 1.2rem; margin: 0 0 .4rem; }
+  .lead { font-size: 1.2rem; color: var(--muted); max-width: 46ch; margin: 0 0 1.75rem; }
+  .btn { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600;
+         padding: .85rem 1.4rem; border-radius: .5rem; min-height: 44px; }
+  .btn:hover { background: var(--accent-dark); color: #fff; }
+  .btn-ghost { background: transparent; color: var(--accent-dark); border: 2px solid var(--accent); }
+  .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+  .btn-ghost:hover { background: var(--soft); color: var(--accent-dark); }
+  section { padding-block: 3.5rem; }
+  .soft { background: var(--soft); }
+  .grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: .75rem; padding: 1.4rem; }
+  .card p { margin: 0; color: var(--muted); }
+  .stat { font-size: 2.2rem; font-weight: 800; color: var(--accent-dark); line-height: 1; margin-bottom: .4rem; }
+  .price { font-size: 1.8rem; font-weight: 800; margin: .3rem 0 .6rem; }
+  .price small { font-size: 1rem; font-weight: 500; color: var(--muted); }
+  .card ul { padding-left: 1.2rem; margin: .5rem 0 0; color: var(--muted); }
+  .featured { border: 2px solid var(--accent); }
+  .tag { display: inline-block; background: var(--accent); color: #fff; font-size: .8rem; font-weight: 600; padding: .15rem .6rem; border-radius: 1rem; margin-bottom: .5rem; }
+  ol.steps { counter-reset: s; list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+  ol.steps li { counter-increment: s; background: #fff; border: 1px solid var(--line); border-radius: .75rem; padding: 1.2rem; }
+  ol.steps li::before { content: counter(s); display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%;
+                        background: var(--accent); color: #fff; font-weight: 700; margin-bottom: .5rem; }
+  .compare { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); margin-top: 1rem; }
+  .compare .card strong { display: block; font-size: 2.5rem; line-height: 1.1; }
+  .before strong { color: var(--bad); }
+  .after strong { color: var(--ok); }
+  details { background: #fff; border: 1px solid var(--line); border-radius: .6rem; padding: .9rem 1.1rem; margin-bottom: .75rem; }
+  summary { font-weight: 600; cursor: pointer; }
+  details p { margin: .6rem 0 0; color: var(--muted); }
+  .contact { text-align: center; }
+  .contact p { color: var(--muted); max-width: 40rem; margin: 0 auto 1.5rem; }
+  footer { border-top: 1px solid var(--line); padding-block: 1.5rem; color: var(--muted); font-size: .95rem; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  footer a { color: var(--ink); display: inline-block; padding: .25rem 0; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">Ahmed Basher · Web Accessibility</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#why">Why now</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#agencies">For agencies</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap">
+      <p class="eyebrow">European Accessibility Act · WCAG 2.2 AA</p>
+      <h1 id="hero-title">Make your online shop usable for everyone, and EAA-ready.</h1>
+      <p class="lead">I audit websites against WCAG 2.2 AA, the standard behind the EAA, Germany's BFSG and France's RGAA. You get a clear report and, if you want, I fix the code too.</p>
+      <div class="actions">
+        <a class="btn" href="#contact">Get a free 1-page check</a>
+        <a class="btn btn-ghost" href="sample-report.pdf">See a sample report <span class="visually-hidden">(PDF)</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" id="why" aria-labelledby="why-title">
+    <div class="wrap">
+      <h2 id="why-title">Why this matters now</h2>
+      <div class="grid">
+        <div class="card"><div class="stat">28 June 2025</div><p>The European Accessibility Act applies to e-commerce, banking, transport and e-book services offered to EU consumers.</p></div>
+        <div class="card"><div class="stat">6 months</div><p>In June 2026 a French court ordered a major retailer to make its website fully accessible within six months, with daily penalties after that.</p></div>
+        <div class="card"><div class="stat">1 in 4</div><p>EU adults lives with a disability. An inaccessible checkout loses those customers, and usually hurts mobile users and SEO too.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <h2 id="services-title">Services &amp; pricing</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>EAA Quick Scan</h3>
+          <div class="price">€149</div>
+          <ul>
+            <li>Automated WCAG 2.2 AA scan, up to 5 pages</li>
+            <li>PDF report with prioritised issues and fixes</li>
+            <li>Delivered in 48 hours</li>
+          </ul>
+        </div>
+        <div class="card featured">
+          <span class="tag">Most popular</span>
+          <h3>Full Accessibility Audit</h3>
+          <div class="price">€690</div>
+          <ul>
+            <li>Up to 15 pages incl. checkout or booking flow</li>
+            <li>Automated + manual keyboard and NVDA screen-reader testing</li>
+            <li>Detailed report with the exact elements and fixes</li>
+            <li>Delivered in 5 working days</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Audit + Remediation</h3>
+          <div class="price"><small>from</small> €1,490</div>
+          <ul>
+            <li>Full audit, then I fix the code</li>
+            <li>HTML, CSS, JavaScript, Shopify and WordPress themes</li>
+            <li>Re-test to confirm every fix</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Accessibility Statement</h3>
+          <div class="price">€99</div>
+          <ul>
+            <li>The statement page the EAA requires, written from your audit</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" aria-labelledby="proof-title">
+    <div class="wrap">
+      <h2 id="proof-title">Real results, measured</h2>
+      <p>A demo shop page, tested with the same engine I use for client audits, before and after my fixes:</p>
+      <div class="compare">
+        <div class="card before"><strong>11</strong><p>failing WCAG rules across 33 elements: missing alt text, unlabelled form fields, low contrast, tiny tap targets</p></div>
+        <div class="card after"><strong>0</strong><p>automated violations after remediation, with semantic HTML, labels, visible focus and accessible names</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <h2 id="process-title">How it works</h2>
+      <ol class="steps">
+        <li><h3>Free check</h3><p>Send your URL. Within 24 hours I send you the top 3 issues on one page, free.</p></li>
+        <li><h3>Audit</h3><p>Automated testing on every key page, then manual keyboard and screen-reader testing.</p></li>
+        <li><h3>Report</h3><p>Every issue ranked by severity, with the element, who it affects and how to fix it.</p></li>
+        <li><h3>Fix &amp; re-test</h3><p>Your team fixes it, or I do. Then I re-test to confirm.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="soft" id="agencies" aria-labelledby="agencies-title">
+    <div class="wrap">
+      <h2 id="agencies-title">For web agencies: white-label</h2>
+      <p>Your clients are asking about the EAA, but you don't have an accessibility specialist in-house. I work behind your brand: your logo on the report, you keep the client relationship, I do the audit and fixes in your existing codebase. Fixed prices, fast turnaround, no long-term contract.</p>
+      <a class="btn" href="#contact">Talk about a partnership</a>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <h2 id="faq-title">Frequently asked questions</h2>
+      <details><summary>Does the EAA apply to my business?</summary>
+        <p>It applies to consumer-facing e-commerce, banking, transport, telecom and e-book services in the EU. Microenterprises (fewer than 10 employees and at most €2 million turnover) are generally exempt from the service requirements. If you're unsure, send me your URL and I'll tell you what I'd check.</p></details>
+      <details><summary>Won't an accessibility overlay widget solve this?</summary>
+        <p>No. Overlay widgets don't fix the underlying code, and accessibility experts and regulators don't accept them as compliance. Real fixes happen in your theme and templates.</p></details>
+      <details><summary>Is automated testing enough?</summary>
+        <p>Automated tools reliably catch about a third of WCAG issues. That's why the Full Audit also includes manual keyboard and screen-reader testing of your most important user journeys.</p></details>
+      <details><summary>Is this legal advice?</summary>
+        <p>No. It's a technical assessment against WCAG 2.2 AA and EN 301 549. For legal questions, please consult a lawyer.</p></details>
+      <details><summary>Which platforms do you work with?</summary>
+        <p>Any public website can be audited. For fixes I work with Shopify themes, WordPress / WooCommerce, and custom HTML, CSS and JavaScript.</p></details>
+    </div>
+  </section>
+
+  <section class="soft contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 id="contact-title">Get your free 1-page check</h2>
+      <p>Send me your website address. I'll reply within 24 hours with the three most important issues I find. No obligation.</p>
+      <a class="btn" href="mailto:a_basher2000@hotmail.com?subject=Free%20accessibility%20check">Email: a_basher2000@hotmail.com</a>
+      <p style="margin-top:1rem"><a href="https://www.linkedin.com/in/ahmed-basher55/">Connect on LinkedIn</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Ahmed Basher · Web Accessibility Audits</span>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+<style>.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
+</body>
+</html>
