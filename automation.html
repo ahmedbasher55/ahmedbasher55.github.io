@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automate Data Entry & Repetitive Office Work | Ahmed Basher</title>
+<meta name="description" content="Stop paying for manual data entry. Custom Python scripts that move invoices, orders and spreadsheets for you. Fixed prices, free process review.">
+<style>
+  :root { --ink:#14213d; --muted:#4a5568; --accent:#0b57d0; --accent-dark:#083e94; --soft:#f3f6fb; --line:#d5dce6; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color:var(--ink); background:#fff; line-height:1.6; font-size:1.0625rem; }
+  a { color: var(--accent); } a:hover { color: var(--accent-dark); }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+  .skip { position:absolute; left:-9999px; } .skip:focus { left:1rem; top:1rem; background:#fff; padding:.6rem 1rem; border:2px solid var(--accent); z-index:10; }
+  .wrap { max-width: 64rem; margin:0 auto; padding:0 1.25rem; }
+  header { border-bottom:1px solid var(--line); } header .wrap { padding-block:.9rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+  header a { color:var(--ink); text-decoration:none; font-weight:700; }
+  h1 { font-size: clamp(2rem, 4.5vw, 2.8rem); line-height:1.15; margin: 3rem 0 1rem; max-width: 22ch; }
+  h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 0 0 1rem; }
+  h3 { font-size: 1.15rem; margin: 0 0 .4rem; }
+  .lead { color: var(--muted); font-size: 1.2rem; max-width: 46ch; }
+  section { padding-block: 3rem; } .soft { background: var(--soft); }
+  .grid { display:grid; gap:1.2rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+  .card { background:#fff; border:1px solid var(--line); border-radius:.75rem; padding:1.3rem; }
+  .card p { margin:0; color: var(--muted); }
+  .num { font-size: 2rem; font-weight: 800; color: var(--accent-dark); line-height:1.1; }
+  .btn { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-weight:600; padding:.85rem 1.4rem; border-radius:.5rem; min-height:44px; }
+  .btn:hover { background:var(--accent-dark); color:#fff; }
+  ul.check { padding-left: 1.2rem; } ul.check li { margin:.3rem 0; }
+  table { border-collapse: collapse; width:100%; background:#fff; }
+  th, td { text-align:left; padding:.7rem .8rem; border-bottom:1px solid var(--line); vertical-align: top; }
+  th { background: var(--ink); color:#fff; }
+  .tbl { overflow-x:auto; }
+  footer { border-top:1px solid var(--line); padding-block:1.5rem; color:var(--muted); font-size:.95rem; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header><div class="wrap"><a href="index.html">Ahmed Basher</a><a href="#contact">Free process review</a></div></header>
+
+<main id="main">
+  <div class="wrap">
+    <h1>Stop paying people to copy data between files.</h1>
+    <p class="lead">I build small, reliable Python scripts that do your repetitive office work: invoices, orders, spreadsheets and reports. One fixed price, and the script keeps working every day.</p>
+    <a class="btn" href="#contact">Get a free 20-minute process review</a>
+  </div>
+
+  <section aria-labelledby="what-title">
+    <div class="wrap">
+      <h2 id="what-title">Typical jobs I automate</h2>
+      <div class="grid">
+        <div class="card"><h3>Invoices &amp; PDFs → Excel</h3><p>Read supplier invoices, statements or forms from PDF and drop every line item into one spreadsheet or your accounting import file.</p></div>
+        <div class="card"><h3>Order e-mails → spreadsheet</h3><p>Collect orders arriving by e-mail or web form and turn them into clean rows: no retyping, no missed orders.</p></div>
+        <div class="card"><h3>Data clean-up &amp; de-duplication</h3><p>Merge customer and contact lists, standardise names, phones, dates and amounts, and flag what needs a human.</p></div>
+        <div class="card"><h3>Weekly reports, built for you</h3><p>The report someone rebuilds by hand every Monday, generated automatically with charts in Excel.</p></div>
+        <div class="card"><h3>Moving data between web tools</h3><p>Browser automation for portals with no API: download reports, upload files, fill the same forms every day.</p></div>
+        <div class="card"><h3>E-invoicing (XRechnung / ZUGFeRD)</h3><p>Turn invoice data into EU-compliant e-invoices, validated with the official German KoSIT validator.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" aria-labelledby="proof-title">
+    <div class="wrap">
+      <h2 id="proof-title">Real examples</h2>
+      <div class="grid">
+        <div class="card"><div class="num">12 PDFs → 1 workbook</div><p>Invoices from 3 vendors extracted to Excel: summary, every line item and spend per vendor, with an automatic check that totals add up.</p></div>
+        <div class="card"><div class="num">139 → 120 rows</div><p>A messy customer list cleaned and de-duplicated: 15 duplicates merged, phones and dates standardised, plus a report of every change.</p></div>
+        <div class="card"><div class="num">1,500 orders → dashboard</div><p>A raw sales export turned into a one-click Excel dashboard with KPIs, monthly trend and top products.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="price-title">
+    <div class="wrap">
+      <h2 id="price-title">Simple, fixed pricing</h2>
+      <div class="tbl">
+        <table>
+          <caption class="visually-hidden">Pricing</caption>
+          <thead><tr><th scope="col">Package</th><th scope="col">What you get</th><th scope="col">Price</th></tr></thead>
+          <tbody>
+            <tr><td>Process review</td><td>20-minute call or e-mail exchange: what can be automated, how long it takes, what it costs</td><td><strong>Free</strong></td></tr>
+            <tr><td>Single script</td><td>One task automated (e.g. PDF invoices → Excel), tested on your real files, with a short how-to</td><td><strong>from $300</strong></td></tr>
+            <tr><td>Workflow</td><td>Several connected steps (e.g. e-mail → spreadsheet → report), scheduled to run on its own</td><td><strong>from $900</strong></td></tr>
+            <tr><td>Care plan</td><td>Fixes when your files or portals change, plus small tweaks</td><td><strong>$49 / month</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="check">
+        <li>You only pay once the script works on your own files.</li>
+        <li>Your data stays private; scripts run on your own computer or server if you prefer.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="soft" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 id="contact-title">Get your free process review</h2>
+      <p>Tell me what the task is and send one sample file (with fake data if you like). I'll reply within 24 hours with what I'd automate and a fixed price.</p>
+      <p><a class="btn" href="mailto:a_basher2000@hotmail.com?subject=Process%20review">Email: a_basher2000@hotmail.com</a></p>
+      <p><a href="https://www.linkedin.com/in/ahmed-basher55/">Connect on LinkedIn</a></p>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© 2026 Ahmed Basher · <a href="index.html">Web accessibility &amp; automation</a></div></footer>
+<style>.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
+</body>
+</html>
