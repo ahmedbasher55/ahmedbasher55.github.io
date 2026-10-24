@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Accessibility Statement Generator (EAA / BFSG / RGAA) | Ahmed Basher</title>
+<meta name="description" content="Create the accessibility statement the European Accessibility Act requires, in English, German or French. Free, no sign-up, nothing leaves your browser.">
+<style>
+  :root { --ink:#14213d; --muted:#4a5568; --accent:#0b57d0; --accent-dark:#083e94; --soft:#f3f6fb; --line:#c9d2de; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color:var(--ink); background:#fff; line-height:1.6; font-size:1.0625rem; }
+  a { color: var(--accent); }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .skip { position:absolute; left:-9999px; } .skip:focus { left:1rem; top:1rem; background:#fff; padding:.6rem 1rem; border:2px solid var(--accent); z-index:10; }
+  .wrap { max-width: 52rem; margin: 0 auto; padding: 0 1.25rem; }
+  header { border-bottom:1px solid var(--line); } header .wrap { padding-block:.9rem; }
+  header a { font-weight:700; color:var(--ink); text-decoration:none; }
+  h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); line-height:1.2; margin: 2.5rem 0 .75rem; }
+  h2 { font-size: 1.35rem; margin: 2rem 0 .75rem; }
+  .lead { color: var(--muted); margin:0 0 1.5rem; }
+  fieldset { border:1px solid var(--line); border-radius:.6rem; padding:1rem 1.2rem 1.2rem; margin:0 0 1.25rem; }
+  legend { font-weight:700; padding:0 .4rem; }
+  label { display:block; font-weight:600; margin: .9rem 0 .3rem; }
+  .hint { display:block; font-weight:400; color:var(--muted); font-size:.92rem; }
+  input[type=text], input[type=email], input[type=url], input[type=date], select, textarea {
+    width:100%; font: inherit; padding:.6rem .7rem; border:1px solid #7a8699; border-radius:.4rem; background:#fff; color:var(--ink); }
+  textarea { min-height: 6rem; }
+  .radios label { display:flex; gap:.5rem; align-items:flex-start; font-weight:400; margin:.4rem 0; }
+  .radios input { margin-top:.35rem; width:1.1rem; height:1.1rem; }
+  button { font: inherit; font-weight:600; background:var(--accent); color:#fff; border:0; border-radius:.5rem; padding:.8rem 1.3rem; cursor:pointer; min-height:44px; }
+  button:hover { background: var(--accent-dark); }
+  .secondary { background:#fff; color:var(--accent-dark); border:2px solid var(--accent); }
+  .secondary:hover { background: var(--soft); }
+  .actions { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1rem; }
+  #output { white-space: pre-wrap; background: var(--soft); border:1px solid var(--line); border-radius:.6rem; padding:1.2rem; font-size:.98rem; }
+  .cta { background: var(--soft); border-left: 4px solid var(--accent); padding: 1rem 1.2rem; border-radius:.4rem; margin: 2rem 0; }
+  .note { color: var(--muted); font-size: .92rem; }
+  footer { border-top:1px solid var(--line); margin-top:3rem; padding-block:1.5rem; color:var(--muted); font-size:.95rem; }
+  [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header><div class="wrap"><a href="index.html">Ahmed Basher · Web Accessibility</a></div></header>
+
+<main id="main" class="wrap">
+  <h1>Free Accessibility Statement Generator</h1>
+  <p class="lead">The European Accessibility Act (EAA) requires covered online services to publish information on how they meet accessibility requirements. Fill in the form and get a ready-to-publish statement in English, German or French. It's free, needs no sign-up, and nothing you type leaves your browser.</p>
+
+  <form id="form" novalidate>
+    <fieldset>
+      <legend>Your business</legend>
+      <label for="org">Company name</label>
+      <input type="text" id="org" name="org" autocomplete="organization" required>
+      <label for="site">Website address</label>
+      <input type="url" id="site" name="site" placeholder="https://www.example.com" required>
+      <label for="service">What does the site offer? <span class="hint">e.g. "an online shop for sports clothing"</span></label>
+      <input type="text" id="service" name="service" required>
+    </fieldset>
+
+    <fieldset>
+      <legend>Compliance status</legend>
+      <div class="radios" role="radiogroup" aria-label="Compliance status">
+        <label><input type="radio" name="status" value="full"> Fully compliant with WCAG 2.1 AA / EN 301 549</label>
+        <label><input type="radio" name="status" value="partial" checked> Partially compliant: some known issues remain</label>
+        <label><input type="radio" name="status" value="none"> Not yet compliant: an audit and fixes are planned</label>
+      </div>
+      <label for="issues">Known accessibility issues <span class="hint">One per line. Leave empty if none.</span></label>
+      <textarea id="issues" name="issues" placeholder="Some product images have no text alternative&#10;Size selector cannot be operated with the keyboard"></textarea>
+      <label for="fixdate">Planned date for fixing them <span class="hint">Optional</span></label>
+      <input type="date" id="fixdate" name="fixdate">
+      <label for="method">How was accessibility assessed?</label>
+      <select id="method" name="method">
+        <option value="self">Self-assessment</option>
+        <option value="third" selected>Audit by an external accessibility specialist</option>
+      </select>
+      <label for="assessed">Date of the last assessment</label>
+      <input type="date" id="assessed" name="assessed">
+    </fieldset>
+
+    <fieldset>
+      <legend>Feedback &amp; contact</legend>
+      <label for="email">Email for accessibility feedback</label>
+      <input type="email" id="email" name="email" autocomplete="email" required>
+      <label for="phone">Phone <span class="hint">Optional</span></label>
+      <input type="text" id="phone" name="phone" autocomplete="tel">
+      <label for="authority">Market surveillance / enforcement authority <span class="hint">Name and website of the authority responsible in your country. In Germany this is the MLBF (Marktüberwachungsstelle der Länder für die Barrierefreiheit von Produkten und Dienstleistungen). Check your national EAA law.</span></label>
+      <input type="text" id="authority" name="authority">
+    </fieldset>
+
+    <fieldset>
+      <legend>Language</legend>
+      <label for="lang">Statement language</label>
+      <select id="lang" name="lang">
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+        <option value="fr">Français</option>
+      </select>
+    </fieldset>
+
+    <p id="errors" role="alert" class="note"></p>
+    <div class="actions"><button type="submit">Generate statement</button></div>
+  </form>
+
+  <section id="result" hidden aria-labelledby="result-title">
+    <h2 id="result-title" tabindex="-1">Your accessibility statement</h2>
+    <div id="output"></div>
+    <div class="actions">
+      <button type="button" id="copy" class="secondary">Copy text</button>
+      <span id="copied" role="status" class="note"></span>
+    </div>
+    <div class="cta">
+      <strong>Not sure what your known issues are?</strong> A statement is only as good as the audit behind it. I'll check one page of your site for free and send you the top 3 issues:
+      <a href="index.html#contact">get your free check</a>.
+    </div>
+  </section>
+
+  <p class="note">This tool provides a template, not legal advice. Requirements vary by country and service; check your national implementation of the European Accessibility Act.</p>
+</main>
+
+<footer><div class="wrap">© 2026 Ahmed Basher · <a href="index.html">Web Accessibility Audits</a></div></footer>
+
+<script>
+const T = {
+  en: {
+    title: o => `Accessibility statement for ${o.org}`,
+    intro: o => `${o.org} is committed to making ${o.site}, ${o.service}, accessible to everyone, including people with disabilities, in line with the European Accessibility Act and the harmonised standard EN 301 549 (WCAG 2.1 Level AA).`,
+    status: { full: "This website is fully compliant with WCAG 2.1 Level AA.",
+              partial: "This website is partially compliant with WCAG 2.1 Level AA. The non-compliant content is listed below.",
+              none: "This website is not yet compliant with WCAG 2.1 Level AA. An accessibility audit and remediation are planned." },
+    issuesH: "Content that is not yet accessible", fix: d => `We plan to fix these issues by ${d}.`,
+    method: { self: "self-assessment", third: "an audit by an external accessibility specialist" },
+    prep: (m, d) => `This statement was prepared on ${d}. Accessibility was assessed by ${m}.`,
+    fbH: "Feedback and contact", fb: o => `If you encounter accessibility barriers on this website, please contact us at ${o.email}${o.phone ? " or " + o.phone : ""}. We aim to respond within 5 working days.`,
+    enfH: "Enforcement", enf: a => `If you are not satisfied with our response, you can contact the competent authority: ${a}.`,
+  },
+  de: {
+    title: o => `Erklärung zur Barrierefreiheit – ${o.org}`,
+    intro: o => `${o.org} ist bestrebt, ${o.site} (${o.service}) für alle Menschen barrierefrei zugänglich zu machen, einschließlich Menschen mit Behinderungen – gemäß dem Barrierefreiheitsstärkungsgesetz (BFSG) und der harmonisierten Norm EN 301 549 (WCAG 2.1 Stufe AA).`,
+    status: { full: "Diese Website ist vollständig mit WCAG 2.1 Stufe AA vereinbar.",
+              partial: "Diese Website ist teilweise mit WCAG 2.1 Stufe AA vereinbar. Die nicht barrierefreien Inhalte sind unten aufgeführt.",
+              none: "Diese Website ist noch nicht mit WCAG 2.1 Stufe AA vereinbar. Eine Prüfung und Nachbesserung sind geplant." },
+    issuesH: "Nicht barrierefreie Inhalte", fix: d => `Wir planen, diese Punkte bis zum ${d} zu beheben.`,
+    method: { self: "im Rahmen einer Selbstbewertung", third: "von einem externen Barrierefreiheits-Experten" },
+    prep: (m, d) => `Diese Erklärung wurde am ${d} erstellt. Die Barrierefreiheit wurde ${m} geprüft.`,
+    fbH: "Feedback und Kontakt", fb: o => `Wenn Ihnen Barrieren auf dieser Website auffallen, kontaktieren Sie uns bitte unter ${o.email}${o.phone ? " oder " + o.phone : ""}. Wir antworten in der Regel innerhalb von 5 Werktagen.`,
+    enfH: "Durchsetzungsverfahren", enf: a => `Wenn Sie mit unserer Antwort nicht zufrieden sind, können Sie sich an die zuständige Behörde wenden: ${a}.`,
+  },
+  fr: {
+    title: o => `Déclaration d'accessibilité – ${o.org}`,
+    intro: o => `${o.org} s'engage à rendre ${o.site} (${o.service}) accessible à tous, y compris aux personnes en situation de handicap, conformément à l'Acte européen sur l'accessibilité et à la norme harmonisée EN 301 549 (WCAG 2.1 niveau AA).`,
+    status: { full: "Ce site est totalement conforme au WCAG 2.1 niveau AA.",
+              partial: "Ce site est partiellement conforme au WCAG 2.1 niveau AA. Les contenus non accessibles sont listés ci-dessous.",
+              none: "Ce site n'est pas encore conforme au WCAG 2.1 niveau AA. Un audit et des corrections sont prévus." },
+    issuesH: "Contenus non accessibles", fix: d => `Nous prévoyons de corriger ces points d'ici le ${d}.`,
+    method: { self: "une auto-évaluation", third: "un audit réalisé par un spécialiste externe de l'accessibilité" },
+    prep: (m, d) => `Cette déclaration a été établie le ${d}. L'accessibilité a été évaluée par ${m}.`,
+    fbH: "Retour d'information et contact", fb: o => `Si vous rencontrez un obstacle d'accessibilité sur ce site, contactez-nous à ${o.email}${o.phone ? " ou au " + o.phone : ""}. Nous nous efforçons de répondre sous 5 jours ouvrés.`,
+    enfH: "Voies de recours", enf: a => `Si notre réponse ne vous satisfait pas, vous pouvez saisir l'autorité compétente : ${a}.`,
+  },
+};
+
+const form = document.getElementById("form");
+const fmt = (v, lang) => v ? new Date(v + "T00:00:00").toLocaleDateString({en: "en-GB", de: "de-DE", fr: "fr-FR"}[lang], {day: "numeric", month: "long", year: "numeric"}) : "";
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const o = Object.fromEntries(new FormData(form).entries());
+  const missing = ["org", "site", "service", "email"].filter(k => !o[k].trim());
+  const errors = document.getElementById("errors");
+  if (missing.length) {
+    errors.textContent = "Please fill in: " + missing.map(k => document.querySelector(`label[for=${k}]`).firstChild.textContent.trim()).join(", ") + ".";
+    document.getElementById(missing[0]).focus();
+    return;
+  }
+  errors.textContent = "";
+  const t = T[o.lang];
+  const today = fmt(new Date().toISOString().slice(0, 10), o.lang);
+  const issues = o.issues.split("\n").map(s => s.trim()).filter(Boolean);
+  let txt = `${t.title(o)}\n\n${t.intro(o)}\n\n${t.status[o.status]}`;
+  if (issues.length) {
+    txt += `\n\n${t.issuesH}\n` + issues.map(i => `• ${i}`).join("\n");
+    if (o.fixdate) txt += `\n\n${t.fix(fmt(o.fixdate, o.lang))}`;
+  }
+  txt += `\n\n${t.prep(t.method[o.method], fmt(o.assessed, o.lang) || today)}`;
+  txt += `\n\n${t.fbH}\n${t.fb(o)}`;
+  if (o.authority.trim()) txt += `\n\n${t.enfH}\n${t.enf(o.authority.trim())}`;
+  document.getElementById("output").textContent = txt;
+  const result = document.getElementById("result");
+  result.hidden = false;
+  document.getElementById("result-title").focus();
+});
+
+document.getElementById("copy").addEventListener("click", async () => {
+  const status = document.getElementById("copied");
+  try {
+    await navigator.clipboard.writeText(document.getElementById("output").textContent);
+    status.textContent = "Copied to clipboard.";
+  } catch {
+    status.textContent = "Copy failed: please select the text and copy it manually.";
+  }
+});
+</script>
+</body>
+</html>
