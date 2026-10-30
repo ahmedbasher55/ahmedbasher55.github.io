@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MyInvois e-invoices for Malaysia, from Excel or your software | Ahmed Basher</title>
+<meta name="description" content="Turn invoices from Excel, CSV or your software into MyInvois (LHDN) UBL 2.1 documents in both XML and JSON, validated against the official SDK rules — mandatory fields, code lists and totals — ready for your MyInvois submission or middleware.">
+<style>
+  :root { --ink:#14213d; --muted:#4a5568; --accent:#0b6b4f; --accent-dark:#084d39; --soft:#f2f7f5; --line:#d3ded9; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "Segoe UI", Tahoma, Arial, sans-serif; color:var(--ink); background:#fff; line-height:1.8; font-size:1.0625rem; }
+  a { color: var(--accent); } a:hover { color: var(--accent-dark); }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+  .skip { position:absolute; left:-9999px; } .skip:focus { left:1rem; top:1rem; background:#fff; padding:.6rem 1rem; border:2px solid var(--accent); z-index:10; }
+  .wrap { max-width: 62rem; margin:0 auto; padding:0 1.25rem; }
+  header { border-bottom:1px solid var(--line); } header .wrap { padding-block:.9rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+  header a { color:var(--ink); text-decoration:none; font-weight:700; }
+  h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); line-height:1.35; margin: 2.5rem 0 1rem; }
+  h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); margin:0 0 1rem; }
+  h3 { font-size: 1.15rem; margin:0 0 .3rem; }
+  .lead { color: var(--muted); font-size:1.2rem; max-width: 42em; }
+  section { padding-block: 2.8rem; } .soft { background: var(--soft); }
+  .grid { display:grid; gap:1.2rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+  .card { background:#fff; border:1px solid var(--line); border-radius:.75rem; padding:1.3rem; }
+  .card p { margin:0; color: var(--muted); }
+  .ok { font-size:1.6rem; font-weight:800; color: var(--accent-dark); }
+  .btn { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-weight:700; padding:.8rem 1.4rem; border-radius:.5rem; min-height:44px; }
+  .btn:hover { background:var(--accent-dark); color:#fff; }
+  table { border-collapse: collapse; width:100%; background:#fff; }
+  th, td { text-align:left; padding:.7rem .8rem; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background: var(--ink); color:#fff; }
+  .tbl { overflow-x:auto; }
+  .note { color: var(--muted); font-size:.95rem; }
+  ul { max-width: 46em; }
+  code { background:var(--soft); padding:.1rem .35rem; border-radius:.3rem; font-size:.95em; }
+  footer { border-top:1px solid var(--line); padding-block:1.5rem; color:var(--muted); font-size:.95rem; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header><div class="wrap"><a href="index.html">Ahmed Basher</a><a href="#contact">Free 15-min call</a></div></header>
+<main id="main">
+  <div class="wrap">
+    <h1>MyInvois e-invoices for Malaysia, from your Excel or software — without replacing your system</h1>
+    <p class="lead">Malaysia's LHDN e-invoicing is rolling out by company size. Every e-invoice must be a UBL 2.1 document — XML or JSON — that passes MyInvois validation before it is cleared. Your system or middleware submits it; the data has to be valid MyInvois first. I build that bridge: Excel, CSV or your software's export → MyInvois UBL 2.1 (XML and JSON) that passes the official SDK rules.</p>
+    <a class="btn" href="#contact">Book a free 15-minute call</a>
+  </div>
+
+  <section aria-labelledby="why-title">
+    <div class="wrap">
+      <h2 id="why-title">The Malaysian e-invoicing mandate</h2>
+      <div class="grid">
+        <div class="card"><h3>Phased by turnover</h3><p>LHDN began with the largest companies in 2024 and is extending the mandate to smaller annual-turnover bands through 2025–2026, each with a grace period.</p></div>
+        <div class="card"><h3>MyInvois by default</h3><p>Invoices are cleared through the <strong>MyInvois</strong> system (API or portal) as UBL 2.1 in <strong>XML or JSON</strong>, with a digital signature, and a validated QR.</p></div>
+        <div class="card"><h3>The gap</h3><p>Many SMEs still invoice from Excel or older software that can't produce a MyInvois document. Mapping the data to a file that validates is where it stalls.</p></div>
+      </div>
+      <p class="note">Based on the LHDN e-Invoice Guidelines and the MyInvois SDK (sdk.myinvois.hasil.gov.my). Always confirm your situation and timeline with your tax agent and LHDN.</p>
+    </div>
+  </section>
+
+  <section class="soft" aria-labelledby="proof-title">
+    <div class="wrap">
+      <h2 id="proof-title">Validated against the official SDK rules</h2>
+      <p>Every file is checked against the rules published in the MyInvois SDK before it leaves your hands — the same checks MyInvois runs on submission:</p>
+      <div class="grid">
+        <div class="card"><div class="ok">✓ 0 errors</div><p>Standard B2B invoice generated from Excel, as a MyInvois UBL 2.1 document in <strong>both XML and JSON</strong>, from one source — so the two always match.</p></div>
+        <div class="card"><div class="ok">✓ 0 errors</div><p>Mandatory fields, code lists (classification, tax type, state, MSIC, UN/ECE units) and the <code>OTH</code> tax scheme, plus the official UBL 2.1 schema.</p></div>
+        <div class="card"><div class="ok">✓ 0 errors</div><p>Service Tax at 8% on three lines plus a "Not Applicable" disbursement line — tax subtotals grouped and totals recomputed correctly.</p></div>
+      </div>
+      <p>Broken data is caught before it reaches MyInvois: an invoice with no supplier TIN, an invalid classification code or a wrong total is rejected with the exact rule it breaks.</p>
+      <h3 style="margin-top:1.5rem">What you get for every invoice</h3>
+      <ul>
+        <li>A MyInvois UBL 2.1 document in <strong>XML</strong> and in <strong>JSON</strong>, ready for your MyInvois submission or middleware.</li>
+        <li>A validation report: mandatory fields, code lists, UN/ECE units and the arithmetic relationships.</li>
+        <li>Batch mode: a whole month of invoices from one file, each validated.</li>
+      </ul>
+      <p><a href="my-sample-invoice.xml">Sample invoice as MyInvois UBL 2.1 XML (demo data)</a> · <a href="my-sample-invoice.json">Same invoice as MyInvois UBL 2.1 JSON</a></p>
+      <p class="note">To be clear: I am not an LHDN-appointed intermediary and I do not submit your invoices or sign them. Submission and the digital signature are done by your system, middleware or appointed provider, with your MyInvois credentials and certificate. I prepare and validate the data so it passes.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="price-title">
+    <div class="wrap">
+      <h2 id="price-title">Pricing</h2>
+      <div class="tbl">
+        <table>
+          <caption class="note" style="caption-side:bottom; text-align:left; padding-top:.5rem">Fixed price agreed after the free call, based on your system and invoice volume.</caption>
+          <thead><tr><th scope="col">Package</th><th scope="col">What you get</th><th scope="col">Price</th></tr></thead>
+          <tbody>
+            <tr><td>Readiness check</td><td>15-minute call plus a check of 3 of your real invoices against the MyInvois SDK rules, with a list of the missing data</td><td><strong>Free</strong></td></tr>
+            <tr><td>Excel / CSV bridge</td><td>Template mapped to your data, a converter with batch mode and validation (XML + JSON), and training</td><td><strong>on request</strong></td></tr>
+            <tr><td>Software / custom system</td><td>Direct export from your software or database to MyInvois UBL 2.1, tested against your submission path</td><td><strong>on request</strong></td></tr>
+            <tr><td>Software vendors and tax agents</td><td>White-label implementation for your clients: data mapping, connectors, validation</td><td><strong>on request</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 id="contact-title">Book your free readiness check</h2>
+      <p>Tell me which system you invoice from and roughly how many invoices you issue per month. I'll reply within 24 hours with a plan and a fixed price.</p>
+      <p><a class="btn" href="mailto:a_basher2000@hotmail.com?subject=MyInvois%20e-invoicing%20(Malaysia)">Email: a_basher2000@hotmail.com</a></p>
+      <p><a href="https://www.linkedin.com/in/ahmed-basher55/">Connect on LinkedIn</a> · Also available: <a href="peppol-belgium.html">Peppol BIS (Belgium)</a> · <a href="uae-einvoicing.html">PINT AE (UAE)</a></p>
+      <p class="note">This is a technical integration service, not tax advice. I am not an LHDN intermediary; clearance, signing and submission to MyInvois are done by your system or appointed provider. I prepare and validate the data so it passes.</p>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© 2026 Ahmed Basher · <a href="index.html">Home</a></div></footer>
+</body>
+</html>
