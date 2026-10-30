@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peppol BIS e-invoices for Belgium, from Excel or your software | Ahmed Basher</title>
+<meta name="description" content="Turn invoices from Excel, CSV or your software into Peppol BIS Billing 3.0 (UBL 2.1) and Factur-X, validated against the official OpenPEPPOL and EN 16931 rules, ready for the Belgian B2B e-invoicing mandate and your Peppol access point.">
+<style>
+  :root { --ink:#14213d; --muted:#4a5568; --accent:#0b6b4f; --accent-dark:#084d39; --soft:#f2f7f5; --line:#d3ded9; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "Segoe UI", Tahoma, Arial, sans-serif; color:var(--ink); background:#fff; line-height:1.8; font-size:1.0625rem; }
+  a { color: var(--accent); } a:hover { color: var(--accent-dark); }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+  .skip { position:absolute; left:-9999px; } .skip:focus { left:1rem; top:1rem; background:#fff; padding:.6rem 1rem; border:2px solid var(--accent); z-index:10; }
+  .wrap { max-width: 62rem; margin:0 auto; padding:0 1.25rem; }
+  header { border-bottom:1px solid var(--line); } header .wrap { padding-block:.9rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+  header a { color:var(--ink); text-decoration:none; font-weight:700; }
+  h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); line-height:1.35; margin: 2.5rem 0 1rem; }
+  h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); margin:0 0 1rem; }
+  h3 { font-size: 1.15rem; margin:0 0 .3rem; }
+  .lead { color: var(--muted); font-size:1.2rem; max-width: 42em; }
+  section { padding-block: 2.8rem; } .soft { background: var(--soft); }
+  .grid { display:grid; gap:1.2rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+  .card { background:#fff; border:1px solid var(--line); border-radius:.75rem; padding:1.3rem; }
+  .card p { margin:0; color: var(--muted); }
+  .ok { font-size:1.6rem; font-weight:800; color: var(--accent-dark); }
+  .btn { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-weight:700; padding:.8rem 1.4rem; border-radius:.5rem; min-height:44px; }
+  .btn:hover { background:var(--accent-dark); color:#fff; }
+  table { border-collapse: collapse; width:100%; background:#fff; }
+  th, td { text-align:left; padding:.7rem .8rem; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background: var(--ink); color:#fff; }
+  .tbl { overflow-x:auto; }
+  .note { color: var(--muted); font-size:.95rem; }
+  ul { max-width: 46em; }
+  footer { border-top:1px solid var(--line); padding-block:1.5rem; color:var(--muted); font-size:.95rem; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header><div class="wrap"><a href="index.html">Ahmed Basher</a><a href="#contact">Free 15-min call</a></div></header>
+<main id="main">
+  <div class="wrap">
+    <h1>Peppol BIS e-invoices for Belgium, from your Excel or software — without replacing your system</h1>
+    <p class="lead">Since 1 January 2026, invoices between Belgian VAT-registered businesses must be structured electronic invoices sent over the Peppol network, in the Peppol BIS Billing 3.0 format. Your software sends them, but the invoice data has to be valid Peppol BIS first. I build that bridge: Excel, CSV or your software's export → Peppol BIS (UBL 2.1) and Factur-X invoices that pass the official rules.</p>
+    <a class="btn" href="#contact">Book a free 15-minute call</a>
+  </div>
+
+  <section aria-labelledby="why-title">
+    <div class="wrap">
+      <h2 id="why-title">The Belgian B2B mandate</h2>
+      <div class="grid">
+        <div class="card"><h3>Live since 1 January 2026</h3><p>Structured e-invoices are mandatory between Belgian VAT-registered businesses, exchanged over Peppol in the <strong>Peppol BIS Billing 3.0</strong> format.</p></div>
+        <div class="card"><h3>Peppol by default</h3><p>The legal default is the Peppol network and the Peppol BIS format. PDF-by-email no longer meets the obligation for B2B invoices in scope.</p></div>
+        <div class="card"><h3>The gap</h3><p>Many SMEs still invoice from Excel or older software that can't produce Peppol BIS. Mapping the data to a valid file is where it stalls.</p></div>
+      </div>
+      <p class="note">Belgian law of 6 February 2024 on structured electronic invoicing. Always confirm your situation with your accountant and the FPS Finance (SPF Finances / FOD Financiën).</p>
+    </div>
+  </section>
+
+  <section class="soft" aria-labelledby="proof-title">
+    <div class="wrap">
+      <h2 id="proof-title">Validated against the official rules</h2>
+      <p>Every file is checked with the official OpenPEPPOL schematron and the European standard EN 16931 before it leaves your hands:</p>
+      <div class="grid">
+        <div class="card"><div class="ok">✓ 0 errors</div><p>B2B invoice at 21% VAT, generated from Excel, as Peppol BIS Billing 3.0 (UBL 2.1).</p></div>
+        <div class="card"><div class="ok">✓ 0 errors</div><p>Checked against the CEN EN 16931 and OpenPEPPOL BIS 3.0 schematron plus the UBL 2.1 schema.</p></div>
+        <div class="card"><div class="ok">✓ 0 errors</div><p>Two VAT rates on one invoice (21% and 6%), totals recalculated and rounded correctly.</p></div>
+      </div>
+      <p>Broken data is caught before it reaches your access point: an invoice with a wrong total is rejected with rules BR-CO-15 and BR-CO-16.</p>
+      <h3 style="margin-top:1.5rem">What you get for every invoice</h3>
+      <ul>
+        <li>A Peppol BIS Billing 3.0 (UBL 2.1) file, ready to send over Peppol through your access point or software.</li>
+        <li>A readable Factur-X PDF with the EN 16931 data embedded, for the human copy.</li>
+        <li>Batch mode: a whole month of invoices from one file, with a validation report.</li>
+      </ul>
+      <p><a href="be-sample-invoice.xml">Sample invoice as Peppol BIS XML (demo data)</a> · <a href="be-sample-invoice.pdf">Same invoice as a Factur-X PDF</a></p>
+    </div>
+  </section>
+
+  <section aria-labelledby="price-title">
+    <div class="wrap">
+      <h2 id="price-title">Pricing</h2>
+      <div class="tbl">
+        <table>
+          <caption class="note" style="caption-side:bottom; text-align:left; padding-top:.5rem">Fixed price agreed after the free call, based on your system and invoice volume.</caption>
+          <thead><tr><th scope="col">Package</th><th scope="col">What you get</th><th scope="col">Price</th></tr></thead>
+          <tbody>
+            <tr><td>Readiness check</td><td>15-minute call plus a check of 3 of your real invoices against Peppol BIS + EN 16931, with a list of the missing data</td><td><strong>Free</strong></td></tr>
+            <tr><td>Excel / CSV bridge</td><td>Template mapped to your data, a converter with batch mode and validation, and training</td><td><strong>on request</strong></td></tr>
+            <tr><td>Software / custom system</td><td>Direct export from your software or database to Peppol BIS and Factur-X, tested with your access point</td><td><strong>on request</strong></td></tr>
+            <tr><td>Accountants and software vendors</td><td>White-label implementation for your clients: data mapping, connectors, testing</td><td><strong>on request</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 id="contact-title">Book your free readiness check</h2>
+      <p>Tell me which system you invoice from and roughly how many invoices you issue per month. I'll reply within 24 hours with a plan and a fixed price.</p>
+      <p><a class="btn" href="mailto:a_basher2000@hotmail.com?subject=Peppol%20BIS%20e-invoicing%20(Belgium)">Email: a_basher2000@hotmail.com</a></p>
+      <p><a href="https://www.linkedin.com/in/ahmed-basher55/">Connect on LinkedIn</a> · Also available: <a href="facturation-electronique.html">facturation électronique (France)</a></p>
+      <p class="note">This is a technical integration service, not tax advice. I'm not a Peppol access point or service provider; transmission over Peppol is done by your access point or software. I prepare and validate the data so it passes, whichever access point you use.</p>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© 2026 Ahmed Basher · <a href="index.html">Home</a></div></footer>
+</body>
+</html>

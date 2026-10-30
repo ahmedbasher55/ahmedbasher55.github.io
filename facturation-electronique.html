@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facturation électronique (Factur-X / Peppol) depuis Excel ou votre logiciel | Ahmed Basher</title>
+<meta name="description" content="Transformez vos factures Excel, CSV ou l'export de votre logiciel en Factur-X (EN 16931) et en Peppol BIS Billing 3.0, validés avec les règles officielles OpenPEPPOL, prêts pour votre plateforme de dématérialisation (PDP).">
+<style>
+  :root { --ink:#14213d; --muted:#4a5568; --accent:#0b6b4f; --accent-dark:#084d39; --soft:#f2f7f5; --line:#d3ded9; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "Segoe UI", Tahoma, Arial, sans-serif; color:var(--ink); background:#fff; line-height:1.8; font-size:1.0625rem; }
+  a { color: var(--accent); } a:hover { color: var(--accent-dark); }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+  .skip { position:absolute; left:-9999px; } .skip:focus { left:1rem; top:1rem; background:#fff; padding:.6rem 1rem; border:2px solid var(--accent); z-index:10; }
+  .wrap { max-width: 62rem; margin:0 auto; padding:0 1.25rem; }
+  header { border-bottom:1px solid var(--line); } header .wrap { padding-block:.9rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+  header a { color:var(--ink); text-decoration:none; font-weight:700; }
+  h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); line-height:1.35; margin: 2.5rem 0 1rem; }
+  h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); margin:0 0 1rem; }
+  h3 { font-size: 1.15rem; margin:0 0 .3rem; }
+  .lead { color: var(--muted); font-size:1.2rem; max-width: 42em; }
+  section { padding-block: 2.8rem; } .soft { background: var(--soft); }
+  .grid { display:grid; gap:1.2rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+  .card { background:#fff; border:1px solid var(--line); border-radius:.75rem; padding:1.3rem; }
+  .card p { margin:0; color: var(--muted); }
+  .ok { font-size:1.6rem; font-weight:800; color: var(--accent-dark); }
+  .btn { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-weight:700; padding:.8rem 1.4rem; border-radius:.5rem; min-height:44px; }
+  .btn:hover { background:var(--accent-dark); color:#fff; }
+  table { border-collapse: collapse; width:100%; background:#fff; }
+  th, td { text-align:left; padding:.7rem .8rem; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background: var(--ink); color:#fff; }
+  .tbl { overflow-x:auto; }
+  .note { color: var(--muted); font-size:.95rem; }
+  ul { max-width: 46em; }
+  footer { border-top:1px solid var(--line); padding-block:1.5rem; color:var(--muted); font-size:.95rem; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu principal</a>
+<header><div class="wrap"><a href="index.html">Ahmed Basher</a><a href="#contact">Appel gratuit de 15 min</a></div></header>
+<main id="main">
+  <div class="wrap">
+    <h1>Vos factures en Factur-X et en Peppol, depuis Excel ou votre logiciel — sans changer de système</h1>
+    <p class="lead">La réforme française de la facturation électronique arrive. Vos factures devront être émises au format structuré (Factur-X, UBL ou CII) et transmises par une plateforme de dématérialisation partenaire (PDP). Je construis la passerelle : Excel, CSV ou l'export de votre logiciel → des factures Factur-X (EN 16931) et Peppol BIS Billing 3.0 qui passent les règles officielles, prêtes pour votre PDP.</p>
+    <a class="btn" href="#contact">Réserver un appel gratuit de 15 min</a>
+  </div>
+
+  <section aria-labelledby="why-title">
+    <div class="wrap">
+      <h2 id="why-title">Le calendrier</h2>
+      <div class="grid">
+        <div class="card"><h3>1ᵉʳ septembre 2026</h3><p>Toutes les entreprises assujetties à la TVA doivent pouvoir <strong>recevoir</strong> des factures électroniques. Les grandes entreprises et les ETI doivent aussi les <strong>émettre</strong>.</p></div>
+        <div class="card"><h3>1ᵉʳ septembre 2027</h3><p>L'obligation d'<strong>émission</strong> s'étend aux PME et aux microentreprises.</p></div>
+        <div class="card"><h3>Le point de blocage</h3><p>Beaucoup de TPE/PME facturent depuis Excel ou un logiciel qui ne sort pas encore de Factur-X ou de Peppol. Préparer la donnée au bon format est l'étape qui coince.</p></div>
+      </div>
+      <p class="note">Réforme issue de l'ordonnance 2021-1190 et de la loi de finances 2024. Confirmez toujours vos dates et vos obligations avec votre expert-comptable et la DGFiP.</p>
+    </div>
+  </section>
+
+  <section class="soft" aria-labelledby="proof-title">
+    <div class="wrap">
+      <h2 id="proof-title">Validé avec les règles officielles</h2>
+      <p>Chaque fichier est contrôlé avec le schématron officiel OpenPEPPOL et la norme européenne EN 16931 avant de quitter vos mains :</p>
+      <div class="grid">
+        <div class="card"><div class="ok">✓ 0 erreur</div><p>Facture B2B à 20 % de TVA, générée depuis Excel, en Factur-X (profil EN 16931).</p></div>
+        <div class="card"><div class="ok">✓ 0 erreur</div><p>La même facture en Peppol BIS Billing 3.0 (UBL 2.1), contrôlée par le schématron CEN + OpenPEPPOL.</p></div>
+        <div class="card"><div class="ok">✓ 0 erreur</div><p>Plusieurs taux de TVA sur une même facture, totaux recalculés et arrondis correctement.</p></div>
+      </div>
+      <p>Une donnée incohérente est bloquée avant d'arriver à votre PDP : une facture dont le total est faux est rejetée avec les règles BR-CO-15 et BR-CO-16.</p>
+      <h3 style="margin-top:1.5rem">Ce que vous recevez pour chaque facture</h3>
+      <ul>
+        <li>Un PDF Factur-X lisible, avec les données structurées EN 16931 intégrées (lisible par l'humain <em>et</em> par la machine).</li>
+        <li>Un fichier Peppol BIS Billing 3.0 (UBL 2.1), prêt à transmettre via votre PDP et le réseau Peppol.</li>
+        <li>Le traitement par lot : tout un mois de factures depuis un seul fichier, avec un rapport de validation.</li>
+      </ul>
+      <p><a href="fr-sample-invoice.pdf">Exemple de facture (PDF Factur-X, données fictives)</a> · <a href="fr-sample-invoice.xml">La même facture en Peppol BIS XML</a></p>
+    </div>
+  </section>
+
+  <section aria-labelledby="price-title">
+    <div class="wrap">
+      <h2 id="price-title">Tarifs</h2>
+      <div class="tbl">
+        <table>
+          <caption class="note" style="caption-side:bottom; text-align:left; padding-top:.5rem">Prix fixe convenu après l'appel gratuit, selon votre système et votre volume de factures.</caption>
+          <thead><tr><th scope="col">Formule</th><th scope="col">Ce que vous obtenez</th><th scope="col">Tarif</th></tr></thead>
+          <tbody>
+            <tr><td>Diagnostic</td><td>Appel de 15 min et contrôle de 3 de vos vraies factures (Factur-X + Peppol), avec la liste des données manquantes</td><td><strong>Gratuit</strong></td></tr>
+            <tr><td>Passerelle Excel / CSV</td><td>Modèle adapté à vos données, un convertisseur avec traitement par lot et validation, et la prise en main</td><td><strong>sur devis</strong></td></tr>
+            <tr><td>Logiciel / système sur mesure</td><td>Export direct depuis votre logiciel ou votre base de données vers Factur-X et Peppol, testé avec votre PDP</td><td><strong>sur devis</strong></td></tr>
+            <tr><td>Experts-comptables et éditeurs</td><td>Mise en place en marque blanche pour vos clients : mapping des données, connecteurs, tests</td><td><strong>sur devis</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 id="contact-title">Réservez votre diagnostic gratuit</h2>
+      <p>Dites-moi depuis quel système vous facturez et combien de factures vous émettez par mois environ. Je vous réponds sous 24 heures avec un plan et un prix fixe.</p>
+      <p><a class="btn" href="mailto:a_basher2000@hotmail.com?subject=Facturation%20%C3%A9lectronique%20(Factur-X%20%2F%20Peppol)">E-mail : a_basher2000@hotmail.com</a></p>
+      <p><a href="https://www.linkedin.com/in/ahmed-basher55/">Me contacter sur LinkedIn</a></p>
+      <p class="note">Il s'agit d'un service d'intégration technique, pas d'un conseil fiscal. Je ne suis pas une plateforme de dématérialisation partenaire (PDP) : la transmission des factures est assurée par votre PDP. Je prépare et je valide la donnée pour qu'elle passe, quelle que soit la PDP choisie.</p>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© 2026 Ahmed Basher · <a href="index.html">Accueil</a></div></footer>
+</body>
+</html>
